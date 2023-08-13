@@ -15,8 +15,13 @@ const TodoList = ({todos, deleteTodo, markAsDone}) => {
             title="Done"
             onPress={() => markAsDone(item.id)}
             disabled={item.done}
+            color="green"
           />
-          <Button title="Delete" onPress={() => deleteTodo(item.id)} />
+          <Button
+            title="Delete"
+            onPress={() => deleteTodo(item.id)}
+            color="#8e2e43"
+          />
         </View>
       )}
     />
@@ -41,13 +46,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textDecorationLine: 'line-through',
     color: 'green',
-  },
-  deleteButton: {
-    color: 'red',
-    backgroundColor: 'red',
-  },
-  saveButton: {
-    backgroundColor: 'green',
   },
 });
 
