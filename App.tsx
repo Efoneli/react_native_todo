@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
-import {View, Text, Button, StyleSheet, TextInput} from 'react-native';
+import {View, Text, StyleSheet, TextInput} from 'react-native';
 import TodoList from './TodoList';
+
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 type Todo = {
   id: number;
@@ -36,18 +39,55 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Todo List App</Text>
-      <Text style={styles.todoTitle}>My Todo</Text>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter You Todo here..."
-          value={todoText}
-          onChangeText={text => setTodoText(text)}
-        />
-        <Button title="Add" onPress={addTodo} />
+      <View style={styles.navIcons}>
+        <View style={styles.icons}>
+          <AntDesign name="bars" style={{fontSize: 30}} />
+          <AntDesign name="inbox" style={{fontSize: 30}} />
+        </View>
+        <View>
+          <Text style={{fontSize: 22, fontWeight: 900}}>ALL TASKS</Text>
+        </View>
+        <View style={styles.icons}>
+          <Ionicons name="book-outline" style={{fontSize: 30}} />
+          <Ionicons name="ellipsis-horizontal-circle" style={{fontSize: 30}} />
+        </View>
       </View>
-      <TodoList todos={todos} deleteTodo={deleteTodo} markAsDone={markAsDone} />
+      <View style={styles.icons}>
+        <TodoList
+          todos={todos}
+          deleteTodo={deleteTodo}
+          markAsDone={markAsDone}
+        />
+      </View>
+      <View style={styles.bottomContent}>
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder="I want to..."
+            value={todoText}
+            onChangeText={text => setTodoText(text)}
+          />
+          <AntDesign
+            onPress={addTodo}
+            name="pluscircle"
+            style={{color: 'blue', fontSize: 50, paddingTop: 10}}
+          />
+        </View>
+        <View style={styles.footerIcons}>
+          <View>
+            <AntDesign name="checkcircle" style={{fontSize: 30}} />
+            <Text>Tasks</Text>
+          </View>
+          <View>
+            <AntDesign name="bars" style={{fontSize: 30}} />
+            <Text>calender</Text>
+          </View>
+          <View>
+            <AntDesign name="setting" style={{fontSize: 30}} />
+            <Text>Settings</Text>
+          </View>
+        </View>
+      </View>
     </View>
   );
 };
@@ -55,8 +95,8 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#c593c4',
+    padding: 5,
+    backgroundColor: '#fff',
   },
   title: {
     fontSize: 24,
@@ -73,14 +113,52 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 20,
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    paddingVertical: 2,
+    borderColor: 'grey',
   },
   input: {
     flex: 1,
     borderWidth: 1,
     borderColor: '#ccc',
-    marginRight: 10,
+    margin: 10,
     paddingHorizontal: 10,
     backgroundColor: 'white',
+    borderRadius: 50,
+    paddingLeft: 20,
+    fontSize: 20,
+    color: 'gray',
+  },
+  icons: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: 6,
+  },
+  navIcons: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    gap: 6,
+    paddingVertical: 20,
+  },
+  footerIcons: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    gap: 6,
+    paddingBottom: 20,
+  },
+  bottomContent: {
+    flex: 1,
+    position: 'absolute',
+    flexDirection: 'column',
+    width: 390,
+    bottom: 0,
   },
 });
 
