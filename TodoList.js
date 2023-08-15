@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Button, StyleSheet, FlatList} from 'react-native';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 const TodoList = ({todos, deleteTodo, markAsDone}) => {
   return (
@@ -8,6 +9,7 @@ const TodoList = ({todos, deleteTodo, markAsDone}) => {
       keyExtractor={item => item.id.toString()}
       renderItem={({item}) => (
         <View style={styles.todoItem}>
+          <Entypo name="circle" style={{fontSize: 20, padding: 10,}} />
           <Text style={item.done ? styles.doneText : styles.todoText}>
             {item.text}
           </Text>
@@ -33,8 +35,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottomWidth: 1,
-    borderColor: '#ccc',
     paddingVertical: 10,
   },
   todoText: {
