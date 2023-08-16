@@ -2,6 +2,7 @@ import {Button, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {StackScreens} from './Stack/AllScreens';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import FooterIcons from './FooterIcons';
 
 type propsType = NativeStackScreenProps<StackScreens, 'Home'>;
 
@@ -15,6 +16,7 @@ function Home(props: propsType) {
     <View style={styles.container}>
       <Text style={styles.heading}>Home</Text>
       <Button title="Go to Task" color="pink" onPress={gotoTodoHome} />
+      <FooterIcons />
     </View>
   );
 }

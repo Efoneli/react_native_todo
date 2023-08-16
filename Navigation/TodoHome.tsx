@@ -4,6 +4,7 @@ import TodoList from './TodoList';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import FooterIcons from './FooterIcons';
 
 type Todo = {
   id: number;
@@ -74,21 +75,9 @@ const App = () => {
             name="pluscircle"
             style={{color: 'green', fontSize: 50, paddingTop: 10}}
           />
+          
         </View>
-        <View style={styles.footerIcons}>
-          <View>
-            <AntDesign name="checkcircle" style={{fontSize: 30}} />
-            <Text>Tasks</Text>
-          </View>
-          <View>
-            <AntDesign name="bars" style={{fontSize: 30}} />
-            <Text>calender</Text>
-          </View>
-          <View>
-            <AntDesign name="setting" style={{fontSize: 30}} />
-            <Text>Settings</Text>
-          </View>
-        </View>
+        <FooterIcons />
       </View>
     </View>
   );
@@ -125,6 +114,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     paddingVertical: 2,
     borderColor: 'grey',
+    bottom: 60,
   },
   input: {
     flex: 1,

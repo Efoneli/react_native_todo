@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, Button, StyleSheet, FlatList} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const TodoList = ({todos, deleteTodo, markAsDone}) => {
   return (
@@ -12,23 +13,17 @@ const TodoList = ({todos, deleteTodo, markAsDone}) => {
           <Entypo
             onPress={() => markAsDone(item.id)}
             disabled={item.done}
-            color="black"
             name="circle"
             style={{fontSize: 20, padding: 10}}
           />
           <Text style={item.done ? styles.doneText : styles.todoText}>
             {item.text}
           </Text>
-          {/* <Button
-            title="Done"
-            onPress={() => markAsDone(item.id)}
-            disabled={item.done}
-            color="green"
-          /> */}
-          <Button
-            title="Delete"
+          <FontAwesome
+            name="times"
             onPress={() => deleteTodo(item.id)}
-            color="#8e2e43"
+            style={{fontSize: 30, padding: 10}}
+            color="brown"
           />
         </View>
       )}
@@ -39,13 +34,13 @@ const TodoList = ({todos, deleteTodo, markAsDone}) => {
 const styles = StyleSheet.create({
   todoItem: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
     paddingVertical: 10,
   },
   todoText: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 20,
     color: 'grey',
   },
   doneText: {
