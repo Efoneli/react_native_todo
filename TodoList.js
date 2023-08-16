@@ -9,16 +9,22 @@ const TodoList = ({todos, deleteTodo, markAsDone}) => {
       keyExtractor={item => item.id.toString()}
       renderItem={({item}) => (
         <View style={styles.todoItem}>
-          <Entypo name="circle" style={{fontSize: 20, padding: 10,}} />
+          <Entypo
+            onPress={() => markAsDone(item.id)}
+            disabled={item.done}
+            color="green"
+            name="circle"
+            style={{fontSize: 20, padding: 10}}
+          />
           <Text style={item.done ? styles.doneText : styles.todoText}>
             {item.text}
           </Text>
-          <Button
+          {/* <Button
             title="Done"
             onPress={() => markAsDone(item.id)}
             disabled={item.done}
             color="green"
-          />
+          /> */}
           <Button
             title="Delete"
             onPress={() => deleteTodo(item.id)}

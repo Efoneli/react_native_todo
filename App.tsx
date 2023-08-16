@@ -45,13 +45,14 @@ const App = () => {
           <AntDesign name="inbox" style={{fontSize: 30}} />
         </View>
         <View>
-          <Text style={{fontSize: 22, fontWeight: 900}}>ALL TASKS</Text>
+          <Text style={styles.headings}>ALL TASKS</Text>
         </View>
         <View style={styles.icons}>
           <Ionicons name="book-outline" style={{fontSize: 30}} />
           <Ionicons name="ellipsis-horizontal-circle" style={{fontSize: 30}} />
         </View>
       </View>
+      <Text style={styles.headings}>Today</Text>
       <View style={styles.icons}>
         <TodoList
           todos={todos}
@@ -60,6 +61,7 @@ const App = () => {
         />
       </View>
       <View style={styles.bottomContent}>
+        {/* <Calendar /> */}
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
@@ -70,7 +72,7 @@ const App = () => {
           <AntDesign
             onPress={addTodo}
             name="pluscircle"
-            style={{color: 'blue', fontSize: 50, paddingTop: 10}}
+            style={{color: 'green', fontSize: 50, paddingTop: 10}}
           />
         </View>
         <View style={styles.footerIcons}>
@@ -109,6 +111,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     fontSize: 18,
   },
+  headings: {
+    color: 'black',
+    fontSize: 25,
+    fontWeight: 'bold',
+    padding: 10,
+  },
   inputContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -140,10 +148,10 @@ const styles = StyleSheet.create({
   navIcons: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    gap: 6,
-    paddingVertical: 20,
+    gap: 10,
+    paddingTop: 20,
   },
   footerIcons: {
     display: 'flex',
