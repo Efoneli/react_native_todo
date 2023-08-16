@@ -12,7 +12,7 @@ const TodoList = ({todos, deleteTodo, markAsDone}) => {
           <Entypo
             onPress={() => markAsDone(item.id)}
             disabled={item.done}
-            color="green"
+            color="black"
             name="circle"
             style={{fontSize: 20, padding: 10}}
           />
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   todoText: {
     flex: 1,
     fontSize: 16,
+    color: 'grey',
   },
   doneText: {
     flex: 1,
