@@ -53,7 +53,8 @@ const App = () => {
           <Ionicons name="ellipsis-horizontal-circle" style={{fontSize: 30}} />
         </View>
       </View>
-      <Text style={styles.headings}>Today</Text>
+      {/* {todoText ? '' : <Text style={styles.headings}>Today</Text>} */}
+
       <View style={styles.icons}>
         <TodoList
           todos={todos}
@@ -75,7 +76,6 @@ const App = () => {
             name="pluscircle"
             style={{color: 'green', fontSize: 50, paddingTop: 10}}
           />
-          
         </View>
         <FooterIcons />
       </View>
