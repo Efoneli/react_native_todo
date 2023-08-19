@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
 import TodoList from './TodoList';
@@ -16,11 +17,20 @@ const App = () => {
   const [todos, setTodos] = useState<Array<Todo>>([]);
   const [todoText, setTodoText] = useState<string>('');
 
+  const today = () => {
+    if (Date.now()) {
+      return <Text>Today</Text>;
+    } else {
+      return <Text>Tomorrow</Text>;
+    }
+  };
+
   const addTodo = () => {
     if (todoText.trim() !== '') {
       setTodos([...todos, {id: Date.now(), text: todoText, done: false}]);
       setTodoText('');
     }
+    today(); 
   };
 
   const deleteTodo = (id: number) => {
@@ -53,7 +63,6 @@ const App = () => {
           <Ionicons name="ellipsis-horizontal-circle" style={{fontSize: 30}} />
         </View>
       </View>
-      {/* {todoText ? '' : <Text style={styles.headings}>Today</Text>} */}
 
       <View style={styles.icons}>
         <TodoList

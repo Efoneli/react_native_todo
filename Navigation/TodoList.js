@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Button, StyleSheet, FlatList} from 'react-native';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 

@@ -1,6 +1,6 @@
 import {Button, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {StackScreens} from './Stack/AllScreens';
+import { StackScreens } from './Stack/AllScreens';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import FooterIcons from './FooterIcons';
 
