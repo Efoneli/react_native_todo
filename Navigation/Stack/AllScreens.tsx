@@ -1,7 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import TodoList from '../TodoList';
 import TodoHome from '../TodoHome';
 import Home from '../Home';
 import Calendar from '../Calender';
@@ -20,7 +19,6 @@ const AllScreens = () => {
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="TodoHome" component={TodoHome} />
-      <Stack.Screen name="TodoList" component={TodoList} />
       <Stack.Screen name="Calender" component={Calendar} />
     </Stack.Navigator>
   );

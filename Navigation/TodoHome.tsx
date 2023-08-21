@@ -16,21 +16,34 @@ type Todo = {
 const App = () => {
   const [todos, setTodos] = useState<Array<Todo>>([]);
   const [todoText, setTodoText] = useState<string>('');
+  const [currentTime, setCurrentTime] = useState(new Date());
 
-  const today = () => {
-    if (Date.now()) {
-      return <Text>Today</Text>;
-    } else {
-      return <Text>Tomorrow</Text>;
-    }
-  };
+// const time = () => {
+//   const date = new Date().toLocaleDateString();
+//   // let day = date.getDay();
+//   // let month = date.getMonth() + 1;
+//   // let year = date.getFullYear(); 
+  
+//   if (date.getDate()) {
+//     return <Text>Today</Text>
+//   } else if(date.getDate() + 1) {
+//     return <Text>Tomorow</Text>
+//   } else if (date.getDate())
+// }
+
+
+
+  // Function to compare todo items based on their time
+  // const compareTodoTimes = (a, b) => a.time - b.time;
+
+  // Sort the todo items based on time
+  // const sortedTodos = todos.slice().sort(compareTodoTimes);
 
   const addTodo = () => {
     if (todoText.trim() !== '') {
       setTodos([...todos, {id: Date.now(), text: todoText, done: false}]);
       setTodoText('');
     }
-    today(); 
   };
 
   const deleteTodo = (id: number) => {
@@ -63,7 +76,6 @@ const App = () => {
           <Ionicons name="ellipsis-horizontal-circle" style={{fontSize: 30}} />
         </View>
       </View>
-
       <View style={styles.icons}>
         <TodoList
           todos={todos}
